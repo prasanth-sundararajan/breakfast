@@ -1,54 +1,68 @@
-# Breakfast Ideas with an AI Model
+# Breakfast Ideas: Prompt Formatting with LangChain
 
-## What this project is
+> A first LangChain script that shows how precise instructions control LLM output format.
 
-This small Python script asks the OpenAI `gpt-4o-mini` model for exactly five healthy breakfast ideas. It prints the model's answer as a numbered list.
+![Python](https://img.shields.io/badge/Python-3.10%2B-3776AB?logo=python&logoColor=white) ![LangChain](https://img.shields.io/badge/LangChain-1C3C3C?logo=langchain&logoColor=white) ![OpenAI](https://img.shields.io/badge/OpenAI-412991?logo=openai&logoColor=white) ![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)
 
-The script is [`breakfast.py`](./breakfast.py). It uses LangChain to send the prompt to the model and `python-dotenv` to read settings from a local `.env` file.
+## Overview
 
-## Set up
+A short starter project: one prompt asks `gpt-4o-mini` for **exactly 5** healthy breakfast ideas, numbered, one line each, with no extra text. It demonstrates how clear formatting constraints make LLM output predictable enough to use in code.
 
-Use Python 3.10 or newer. Open PowerShell in this folder and install the required packages:
+## Demo
 
-```powershell
-python -m pip install python-dotenv langchain-openai
+![Example run](Screenshot_breakfast.png)
+
+## Tech stack
+
+| Layer | Technology |
+|---|---|
+| Orchestration | LangChain |
+| Model | OpenAI `gpt-4o-mini` |
+
+## Project structure
+
+```text
+.
+├── breakfast.py
+├── requirements.txt
+└── .env.example
 ```
 
-Add your OpenAI API key to the local `.env` file:
+## Getting started
 
-```dotenv
-OPENAI_API_KEY=your_openai_api_key
+**Prerequisites:** Python 3.10+
+
+```bash
+git clone https://github.com/prasanth-sundararajan/breakfast.git
+cd breakfast
+python -m venv .venv
+# Windows: .venv\Scripts\activate    macOS/Linux: source .venv/bin/activate
+pip install -r requirements.txt
 ```
 
-Replace the example value with your own key. Do not share or commit the real `.env` file. The project `.gitignore` is intended to keep it out of Git.
+Copy `.env.example` to `.env` and add your keys:
 
-## Run
-
-```powershell
-python .\breakfast.py
+```bash
+cp .env.example .env
 ```
 
-The script makes an API request, so a valid key and internet connection are needed. API usage may incur charges.
+## Usage
 
-## Example run
+```bash
+python breakfast.py
+```
 
-The screenshot shows the script being run several times in the terminal:
+## Configuration
 
-![Breakfast ideas script output in the terminal](./Screenshot_breakfast.png)
+| Variable | Required | Description |
+|---|---|---|
+| `OPENAI_API_KEY` | Yes | OpenAI API key used for chat and embeddings |
 
-## Task completed
+## License
 
-The script sends a clear prompt to an AI model and requests exactly five breakfast ideas, formatted as a numbered list with one idea per line and no extra introduction or conclusion.
+Released under the [MIT License](LICENSE).
 
-## Beginner task question
+## Author
 
-**Can you write a Python script that asks an AI model for exactly five breakfast ideas and prints only a numbered list, with no extra text?**
-
-Try changing the prompt to request a different meal or dietary preference. Run it again and check whether the model follows the requested number and format.
-
-## What still needs to be done
-
-- Run the script with a valid API key and confirm it prints five numbered ideas.
-- Check whether the answer follows the one-line-per-idea format; AI responses may not always follow instructions perfectly.
-- Add a dependency file such as `requirements.txt` if the project will be shared or installed on another computer.
-- Avoid entering private or sensitive information in prompts.
+**Prasanth Sundararajan**, Senior SRE and AI Engineer  
+[LinkedIn](https://www.linkedin.com/in/prasanth-s-a093a7109/) · [GitHub](https://github.com/prasanth-sundararajan)
